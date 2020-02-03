@@ -1,9 +1,9 @@
 // Данный пример меняет адрес модуля на указанный в argv[1].
 
 #include <iostream>
-#include "../pyiArduinoI2Cdsl.h"
+#include "../iarduino_I2C_DSL.h"
 
-pyiArduinoI2Cdsl module;
+iarduino_I2C_DSL module;
 
 uint8_t newAddress = 9;
 
@@ -18,7 +18,7 @@ int main(int argc, char** argv){
 
                 std::cout << "На шине I2C найден модуль с адресом 0x";
                 std::cout << std::hex << int(module.getAddress());
-                std::cout << " который является расширителем выводов\n";
+                std::cout << " который является датчиком освещённости\n";
 
                 if (module.changeAddress(newAddress)){
 

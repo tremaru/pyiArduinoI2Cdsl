@@ -6,6 +6,7 @@ from iarduino_I2C_DSL cimport iarduino_I2C_DSL
 
 DEF_CHIP_ID_FLASH =  0x3C
 DEF_CHIP_ID_METRO =  0xC3
+DEF_MODEL_DSL = 0x06
 
 # Адреса регистров модуля:
 REG_FLAGS_0          =  0x00
@@ -16,17 +17,15 @@ REG_MODEL            =  0x04
 REG_VERSION          =  0x05
 REG_ADDRESS          =  0x06
 REG_CHIP_ID          =  0x07
-REG_SHT_PERIOD       =  0x08
-REG_SHT_FLG          =  0x10
-REG_SHT_TEM_L        =  0x11
-REG_SHT_HUM_L        =  0x13
-REG_SHT_TEM_CHANGE   =  0x15
-REG_SHT_HUM_CHANGE   =  0x16
+REG_DSL_AVERAGING    =  0x08
+REG_DSL_FLG          =  0x10
+REG_DSL_LUX_L        =  0x11
+REG_DSL_LUX_CHANGE   =  0x13
+REG_DSL_COEFFICIENT  =  0x14
+REG_DSL_PROXIMITY_L  =  0x15
+
 # Позиция битов и флагов:
-SHT_TEM_NEGATIVE     =  0x80
-SHT_FLG_CHANGED_HUM  =  0x04
-SHT_FLG_CHANGED_TEM  =  0x02
-SHT_FLG_CHANGED      =  0x01
+DSL_FLG_CHANGED      =  0x01
 
 NO_BEGIN = 1
 
@@ -79,3 +78,22 @@ cdef class pyiArduinoI2Cdsl:
 
     def getVersion(self):
         return self.c_module.getVersion()
+
+    def getLux(self):
+        return self.c_module.getLux()
+
+    def getProximity(self):
+        return self.c_module.getProximity()
+
+    def getPulsation(self):
+        return self.c_module.getPulsation()
+
+    def getLuxChanged(self):
+        return self.c_module.getLuxChanged()
+
+    def setLuxChange(self, lux):
+        return self.c_module.setLuxChange(lux)
+
+    def setAveraging(self, k):
+        return self.c_module.setAveraging(k)
+

@@ -10,3 +10,10 @@ cdef extern from "iarduino_I2C_DSL.h":
         bint reset()
         unsigned char getAddress()
         unsigned char getVersion()
+        unsigned short getLux()
+        unsigned short getProximity()
+        unsigned char getPulsation()
+        bint getLuxChanged()
+        bint setLuxChange(unsigned char)
+        bint setAveraging(unsigned char)
+
