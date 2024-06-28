@@ -32,11 +32,15 @@ NO_BEGIN = 1
 cdef class pyiArduinoI2Cdsl:
     cdef iarduino_I2C_DSL c_module
 
-    def __cinit__(self, address=None, auto=None):
+    def __cinit__(self, address=None, auto=None, bus=None):
+
 
         if address is not None:
 
             self.c_module = iarduino_I2C_DSL(address)
+
+            if bus is not None:
+                self.changeBus(bus)
 
             if auto is None:
                 #sleep(.5)
@@ -52,6 +56,9 @@ cdef class pyiArduinoI2Cdsl:
         else:
 
             self.c_module = iarduino_I2C_DSL()
+
+            if bus is not None:
+                self.changeBus(bus)
 
             if auto is None:
                 #sleep(.5)

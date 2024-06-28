@@ -29,14 +29,18 @@ DSL_FLG_CHANGED      =  0x01
 
 NO_BEGIN = 1
 
-cdef cppclass pyiArduinoI2Cdsl:
+cdef class pyiArduinoI2Cdsl:
     cdef iarduino_I2C_DSL c_module
 
-    def __cinit__(self, address=None, auto=None):
+    def __cinit__(self, address=None, auto=None, bus=None):
+
 
         if address is not None:
 
             self.c_module = iarduino_I2C_DSL(address)
+
+            if bus is not None:
+                self.changeBus(bus)
 
             if auto is None:
                 #sleep(.5)
@@ -52,6 +56,9 @@ cdef cppclass pyiArduinoI2Cdsl:
         else:
 
             self.c_module = iarduino_I2C_DSL()
+
+            if bus is not None:
+                self.changeBus(bus)
 
             if auto is None:
                 #sleep(.5)
@@ -98,4 +105,4 @@ cdef cppclass pyiArduinoI2Cdsl:
         return self.c_module.setAveraging(k)
 
     def changeBus(self, bus):
-        return self.c_module.changeBus(bus)
+        return self.c_module.changeBus(bytes(bus, 'utf-8'))

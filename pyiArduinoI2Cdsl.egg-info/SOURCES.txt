@@ -20,6 +20,7 @@ pyiArduinoI2Cdsl/cpp/FindDevices.cpp
 pyiArduinoI2Cdsl/cpp/NewAddress.cpp
 pyiArduinoI2Cdsl/cpp/getAll.cpp
 pyiArduinoI2Cdsl/cpp/getLuxChanged.cpp
+pyiArduinoI2Cdsl/cpp/newBus.cpp
 pyiArduinoI2Cdsl/examples/FindDevices.py
 pyiArduinoI2Cdsl/examples/getAll.py
 pyiArduinoI2Cdsl/examples/getLuxChanged.py

@@ -6,7 +6,7 @@ def readme():
         return readme.read()
 
 setup(name='pyiArduinoI2Cdsl',
-    version='1.0.3',
+    version='1.0.4',
     description='iarduino.ru module for Raspberry Pi',
     long_description=readme(),
     classifiers=[
