@@ -124,7 +124,7 @@ class iarduino_I2C {
                 }
 
                 void changeBus(std::string bus){
-                        filename = bus;
+                        this->filename = bus;
                 }
 
         private:

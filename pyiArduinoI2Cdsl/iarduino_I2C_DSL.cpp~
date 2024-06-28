@@ -205,3 +205,8 @@ void iarduino_I2C_DSL::changeBus(std::string bus)
 {
 	objI2C->changeBus(bus);
 }
+
+void iarduino_I2C_DSL::printBus()
+{
+	objI2C->printBus();
+}

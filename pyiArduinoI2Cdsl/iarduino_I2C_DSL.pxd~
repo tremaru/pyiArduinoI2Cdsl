@@ -21,3 +21,4 @@ cdef extern from "iarduino_I2C_DSL.h":
         bint getPullI2C()
         bint setPullI2C(bint)
         void changeBus(string)
+        void printBus()

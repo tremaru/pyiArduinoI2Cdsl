@@ -29,7 +29,7 @@ DSL_FLG_CHANGED      =  0x01
 
 NO_BEGIN = 1
 
-cdef cppclass pyiArduinoI2Cdsl:
+cdef class pyiArduinoI2Cdsl:
     cdef iarduino_I2C_DSL c_module
 
     def __cinit__(self, address=None, auto=None):
